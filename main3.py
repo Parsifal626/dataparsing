@@ -13,7 +13,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 product_items = soup.find_all('div', class_='b-common-item--catalog-item')
 
 # Открываем файл для записи данных
-with open('products.csv', 'w', newline='', encoding='utf-8') as csvfile:
+with open('products1.csv', 'w', newline='', encoding='utf-8') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['ID', 'Наименование', 'Ссылка', 'Регулярная цена', 'Промо цена', 'Бренд'])
 
