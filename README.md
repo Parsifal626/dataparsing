@@ -1,7 +1,7 @@
 Это тестовое задание для парсинга данных с сайта https://4lapy.ru/catalog/sobaki/korm-sobaki/sukhoy-korm-sobaki/.
 
 
-Начало работы: 
+Начало работы:
 
 1. Установка зависимостей - pip install -r requirements.txt
 
