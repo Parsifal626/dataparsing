@@ -2,10 +2,12 @@ import csv
 import requests
 from bs4 import BeautifulSoup
 
-# URL страницы для парсинга
-url = 'https://4lapy.ru/catalog/sobaki/korm-sobaki/sukhoy-korm-sobaki/'
+# URL страницы для парсинга 
+# не совсем успел создать перебор страниц. :)
+url = 'https://4lapy.ru/catalog/sobaki/korm-sobaki/sukhoy-korm-sobaki/?section_id=166&sort=popular&page=1'
 
 # Отправляем GET-запрос и получаем HTML-код страницы
+
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
 
@@ -13,7 +15,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 product_items = soup.find_all('div', class_='b-common-item--catalog-item')
 
 # Открываем файл для записи данных
-with open('products1.csv', 'w', newline='', encoding='utf-8') as csvfile:
+with open('products1.csv', 'a+', newline='', encoding='utf-8') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['ID', 'Наименование', 'Ссылка', 'Регулярная цена', 'Промо цена', 'Бренд'])
 
@@ -30,3 +32,5 @@ with open('products1.csv', 'w', newline='', encoding='utf-8') as csvfile:
         writer.writerow([product_id, name, link, regular_price, promo_price, brand])
 
 print("Парсинг завершен. Данные сохранены в products.csv.")
+
+
