@@ -22,7 +22,7 @@ with open('products1.csv', 'w', newline='', encoding='utf-8') as csvfile:
         product_id = item['data-productid']
         name = item.find('span', class_='b-item-name').text.strip()
         link = "https://4lapy.ru/" + item.find('a', class_='b-common-item__description-wrap')['href']
-        regular_price = item.find("span", class_= "b-common-item__prev-price js-sale-origin").text.strip() + " ₽"
+        regular_price = item.find("a", class_="b-weight-container__link js-price active-link").get("data-oldprice").split("\n")
         promo_price = item.find('a', class_='js-price')['data-packageprice']
         brand = item.find('span', class_='span-strong').text.strip()
 
