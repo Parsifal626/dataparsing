@@ -6,10 +6,10 @@ category_id = 166
 count = 10
 sort = 'popular'
 
-proxy = {
-    'http': 'http://your_proxy_here',
-    'https': 'https://your_proxy_here'
-}
+# proxy = {
+#     'http': 'http://your_proxy_here',
+#     'https': 'https://your_proxy_here'
+# }
 
 user_agent = 'lapy/3.9.2 (Samsung; Android)'
 
@@ -17,7 +17,7 @@ headers = {
     'User-Agent': user_agent
 }
 
-with open('products2.csv', 'a+', newline='', encoding='utf-8') as csvfile:
+with open('products3.csv', 'a+', newline='', encoding='utf-8') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow(['ID', 'Наименование', 'Ссылка', 'Регулярная цена', 'Промо цена', 'Бренд'])
 
@@ -30,7 +30,7 @@ with open('products2.csv', 'a+', newline='', encoding='utf-8') as csvfile:
         }
 
 # response не сработает - нужен прокси. Если хочешь без прокси тоже ок - удали proxies=proxy из строчки ниже)
-        response = requests.get(url=base_url, params=params, proxies=proxy, headers=headers) 
+        response = requests.get(url=base_url, params=params,  headers=headers) # proxies=proxy
         data = response.json()['data']["goods"]
 
         for product in data:
